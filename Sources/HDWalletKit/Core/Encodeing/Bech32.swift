@@ -116,7 +116,7 @@ extension Encoding {
         let size = sizeFromBase(size: string.lengthOfBytes(using: .utf8) - zerosCount)
         var decodedBytes: [UInt8] = Array(repeating: 0, count: size)
         for c in string {
-            guard let baseIndex = baseAlphabets.index(of: c) else { return Data() }
+            guard let baseIndex = baseAlphabets.firstIndex(of: c) else { return Data() }
             
             var carry = baseIndex.encodedOffset
             var i = 0
